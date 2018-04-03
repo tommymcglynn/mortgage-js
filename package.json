@@ -1,0 +1,27 @@
+{
+  "name": "mortgage-js",
+  "version": "0.0.1",
+  "description": "Javascript Mortgage Calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommymcglynn/mortgage-js.git"
+  },
+  "keywords": [
+    "mortgage",
+    "finance",
+    "calculator"
+  ],
+  "author": "Tommy McGlynn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tommymcglynn/mortgage-js/issues"
+  },
+  "homepage": "https://github.com/tommymcglynn/mortgage-js#readme",
+  "devDependencies": {
+    "jest": "^22.4.3"
+  }
+}
