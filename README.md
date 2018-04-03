@@ -1,8 +1,11 @@
 # mortgage-js
-Javascript Mortgage Calculator.
+Simple mortgage calculator written in Javascript. Determine total monthly payment. Calculate entire payment schedule with principal and interest. See how additional principal payments could affect the pay down schedule. Also accounts for property tax, homeowner insurance and private mortgage insurance.
+
+## Install with NPM
+    npm install --save mortgage-js
 
 ## Usage
-    mortgageJs = require("./index")
+    mortgageJs = require("mortgage-js")
     
     let mortgageCalculator = mortgageJs.createMortgageCalculator();
     mortgageCalculator.totalPrice = 800000;
@@ -18,7 +21,7 @@ Javascript Mortgage Calculator.
     let payment = mortgageCalculator.calculatePayment();
 
 ## Alternate Usage
-    mortgageJs = require("./index")
+    mortgageJs = require("mortgage-js")
     
     let payment = mortgageJs.calculatePayment(800000,
             160000,
