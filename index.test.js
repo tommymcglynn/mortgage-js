@@ -39,6 +39,17 @@ test('calculates mortgage with specific settings using calculator instance and a
         expect(p.balance).toBeDefined();
     }
     expect(payment.mortgageInsurance).toBe(0);
+    expect(payment.paymentSchedule[payment.paymentSchedule.length - 1].balance).toBe(0);
+
+    // Adjust additional principal
+    mortgageCalculator.additionalPrincipalPayment = 0;
+    payment = mortgageCalculator.calculatePayment();
+    expect(payment).toBeDefined();
+    expect(payment.paymentSchedule.length).toBe(360);
+    mortgageCalculator.additionalPrincipalPayment = 500;
+    payment = mortgageCalculator.calculatePayment();
+    expect(payment).toBeDefined();
+    expect(payment.paymentSchedule.length).toBe(274);
 });
 
 test('calculates mortgage with default settings using method and asserts a result', () => {
