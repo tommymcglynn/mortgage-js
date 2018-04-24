@@ -50,6 +50,18 @@ test('calculates mortgage with specific settings using calculator instance and a
     payment = mortgageCalculator.calculatePayment();
     expect(payment).toBeDefined();
     expect(payment.paymentSchedule.length).toBe(274);
+
+    mortgageCalculator.totalPrice = 500000;
+    mortgageCalculator.downPayment = 100000;
+    mortgageCalculator.interestRate = 0.045;
+    mortgageCalculator.months = 360;
+    mortgageCalculator.additionalPrincipalPayment = 0;
+    payment = mortgageCalculator.calculatePayment();
+    expect(payment).toBeDefined();
+    expect(payment.paymentSchedule.length).toBe(360);
+    expect(payment.paymentSchedule[payment.paymentSchedule.length - 1].balance).toBe(0);
+
+
 });
 
 test('calculates mortgage with default settings using method and asserts a result', () => {
@@ -98,4 +110,9 @@ test('calculates mortgage with specific settings using method and asserts result
         expect(p.balance).toBeDefined();
     }
     expect(payment.mortgageInsurance).toBe(0);
+});
+
+test('rounding to next penny', () => {
+    expect(mortgageJs.nextPenny(3.73889797)).toBe(3.74);
+    expect(mortgageJs.nextPenny(1.33333333)).toBe(1.34);
 });

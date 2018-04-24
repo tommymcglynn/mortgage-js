@@ -84,13 +84,18 @@ class MortgageCalculator {
         return payments;
     }
 
+    static calculateMonthlyPIPayment(loanAmount, annualRate, termMonths) {
+        let monthlyRate = annualRate / 12;
+        let payment = (monthlyRate * loanAmount * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1);
+        return this.nextPenny(payment);
+    }
+
     static roundPenny(value) {
         return Math.round(value * 100)/100;
     }
 
-    static calculateMonthlyPIPayment(loanAmount, annualRate, termMonths) {
-        let monthlyRate = annualRate / 12;
-        return (monthlyRate * loanAmount * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1);
+    static nextPenny(value) {
+        return Math.ceil(value * 100)/100;
     }
 }
 
@@ -121,6 +126,7 @@ module.exports = {
         _calc.mortgageInsuranceThreshold = mortgageInsuranceThreshold;
         _calc.additionalPrincipalPayment = additionalPrincipalPayment;
         return _calc.calculatePayment();
-    }
+    },
+    nextPenny: MortgageCalculator.nextPenny
 };
 
