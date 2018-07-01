@@ -38,7 +38,7 @@ class MortgageCalculator {
         let homeOwnerInsurance = MortgageCalculator.roundPenny((this.totalPrice * this.insuranceRate) / 12);
         return {
             loanAmount: loanAmount,
-            principalAndInterest: piPayment + this.additionalPrincipalPayment,
+            principalAndInterest: piPayment,
             tax: propertyTax,
             insurance: homeOwnerInsurance,
             total: piPayment + propertyTax + homeOwnerInsurance + mortgageInsurance,

@@ -21,7 +21,7 @@ test('calculates mortgage with specific settings using calculator instance and a
     let payment = mortgageCalculator.calculatePayment();
     expect(payment).toBeDefined();
     expect(payment.loanAmount).toBe(640000);
-    expect(payment.principalAndInterest).toBe(3442.79);
+    expect(payment.principalAndInterest).toBe(3342.79);
     expect(payment.tax).toBe(800);
     expect(payment.insurance).toBe(86.67);
     expect(payment.total).toBe(4229.46);
@@ -60,6 +60,11 @@ test('calculates mortgage with specific settings using calculator instance and a
     expect(payment).toBeDefined();
     expect(payment.paymentSchedule.length).toBe(360);
     expect(payment.paymentSchedule[payment.paymentSchedule.length - 1].balance).toBe(0);
+    expect(payment.principalAndInterest).toBe(2026.75);
+
+    mortgageCalculator.additionalPrincipalPayment = 10;
+    payment = mortgageCalculator.calculatePayment();
+    expect(payment.principalAndInterest).toBe(2036.75);
 
 
 });
@@ -92,7 +97,7 @@ test('calculates mortgage with specific settings using method and asserts result
         100);
     expect(payment).toBeDefined();
     expect(payment.loanAmount).toBe(640000);
-    expect(payment.principalAndInterest).toBe(3442.79);
+    expect(payment.principalAndInterest).toBe(3342.79);
     expect(payment.tax).toBe(800);
     expect(payment.insurance).toBe(86.67);
     expect(payment.total).toBe(4229.46);
