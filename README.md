@@ -55,3 +55,10 @@ Simple mortgage calculator written in Javascript. Determine total monthly paymen
             }
         ]
     }
+
+## Release
+
+1. Commit changes
+2. Increment version with: npm version major|minor|patch
+3. Push changes to origin master
+4. npm publish
