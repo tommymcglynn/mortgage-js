@@ -56,6 +56,10 @@ Simple mortgage calculator written in Javascript. Determine total monthly paymen
         ]
     }
 
+## Running Tests
+
+    npm test
+
 ## Release
 
 1. Commit changes
