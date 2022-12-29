@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/tommymcglynn/mortgage-js#readme",
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^29.3.1"
   },
   "jest": {
     "testURL": "http://localhost"
